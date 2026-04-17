@@ -79,7 +79,7 @@ public class Program
                 app.UseExceptionHandler("/error");
                 app.UseHsts();
             }
-
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseAntiforgery();
             app.UseAuthorization();
