@@ -1,18 +1,20 @@
 ﻿@inherits LayoutComponentBase
 @inject IJSRuntime JS
 
+<MudThemeProvider />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
     <MudAppBar Elevation="1">
-        <MudButton Variant="Variant.Text" Color="Color.Tertiary" Size="Size.Large" Href="/">Overlege AI 👩‍⚕️👨‍⚕</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Tertiary" Size="Size.Large" Href="/">CloseGuard 💵 🤖</MudButton>
         <MudButtonGroup Color="Color.Primary" Variant="Variant.Filled">
-            <MudButton EndIcon="@Icons.Material.Filled.Info" Href="/How_it_works">How it works</MudButton>
-            <MudButton EndIcon="@Icons.Material.Filled.AttachMoney" Href="/Price">Price</MudButton>
-            <MudButton EndIcon="@Icons.Material.Filled.Done" Href="/Free">Try it for free</MudButton>
-            <MudButton EndIcon="@Icons.Material.Filled.Visibility" Href="/Demo">Demo</MudButton>
+            <MudButton Href="/How_it_works">Generate Random Data 💹</MudButton>
+            <MudSpacer/>
+            <MudButton Href="/Price">Generate Deviated Data 📈</MudButton>
+            <MudSpacer />
+            <MudButton Href="/Price">Analyse Data 🤖</MudButton>
         </MudButtonGroup>        
     </MudAppBar>
     <MudMainContent>
