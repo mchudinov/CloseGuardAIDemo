@@ -63,3 +63,17 @@ POST   /api/exceptions/{id}/feedback
 ## Current State
 
 Early skeleton: routing, logging, MudBlazor, and config are wired up. Home page is a placeholder. No database, no API controllers, no scoring engine, and no active AI calls yet. The Azure OpenAI client registration in `Program.cs` is commented out pending implementation.
+
+## Project Instructions
+
+### Context7 Integration
+
+Always use Context7 MCP when I need library/API documentation, code generation, setup, or configuration steps without me having to explicitly ask.
+
+### GitHUb integration
+
+When creating items in GitHub always use CloseGuardAIDemo GitHub project. Create items in Backlog and give a name to each item "Step-number short description". Add a short description to each item. Try to figure out what was the latest used step number in the current session and add +1 to each step.
+
+When the user asks to work on a Step, immediately move the corresponding GitHub project item to "In-progress" state before writing any code.
+
+Move item to "In-review" state when you are done programming.
