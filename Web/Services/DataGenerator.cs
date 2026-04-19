@@ -32,14 +32,14 @@ public static class DataGenerator
 
     public static List<AccountSnapshot> GenerateClean()
     {
+        var rng = new Random(42);
         var snapshots = new List<AccountSnapshot>();
 
         foreach (var (id, name, type) in AccountDefinitions)
         {
-            var previous = Math.Round((decimal)(_rng.NextDouble() * 90_000 + 10_000), 2);
-            var variancePct = Math.Round((decimal)(_rng.NextDouble() * 10 - 5), 2); // ±5%
+            var previous = Math.Round((decimal)(rng.NextDouble() * 90_000 + 10_000), 2);
+            var variancePct = Math.Round((decimal)(rng.NextDouble() * 10 - 5), 2);
             var current = Math.Round(previous * (1 + variancePct / 100), 2);
-            var variance = current - previous;
 
             snapshots.Add(new AccountSnapshot
             {
@@ -48,13 +48,85 @@ public static class DataGenerator
                 AccountType = type,
                 PreviousBalance = previous,
                 CurrentBalance = current,
-                VarianceAmount = variance,
+                VarianceAmount = current - previous,
                 VariancePercent = variancePct,
-                ManualJournalCount = _rng.Next(0, 4),
-                LargestManualJournalAmount = Math.Round((decimal)(_rng.NextDouble() * 2_000), 2),
-                UnmatchedItemCount = _rng.Next(0, 3),
-                DaysToCompleteReconciliation = _rng.Next(1, 11),
+                ManualJournalCount = rng.Next(0, 4),
+                LargestManualJournalAmount = Math.Round((decimal)(rng.NextDouble() * 2_000), 2),
+                UnmatchedItemCount = rng.Next(0, 3),
+                DaysToCompleteReconciliation = rng.Next(1, 11),
                 HasSupportDocument = true,
+                MaterialityThreshold = Math.Round(previous * 0.05m, 2),
+            });
+        }
+
+        return snapshots;
+    }
+
+    public static List<AccountSnapshot> GenerateDeviated()
+    {
+        var rng = new Random(99);
+        var snapshots = new List<AccountSnapshot>();
+
+        // Anomaly types assigned to fixed indices so counts are deterministic
+        var anomalies = new Dictionary<int, string>
+        {
+            [2]  = "LargeJump",
+            [5]  = "MissingSupport",
+            [8]  = "ManualJournal",
+            [11] = "Overdue",
+            [14] = "UnmatchedItems",
+            [17] = "LargeJump",
+            [19] = "MissingSupport",
+        };
+
+        for (int i = 0; i < AccountDefinitions.Length; i++)
+        {
+            var (id, name, type) = AccountDefinitions[i];
+            var previous = Math.Round((decimal)(rng.NextDouble() * 90_000 + 10_000), 2);
+            var variancePct = Math.Round((decimal)(rng.NextDouble() * 10 - 5), 2);
+            var current = Math.Round(previous * (1 + variancePct / 100), 2);
+            int manualCount = rng.Next(0, 4);
+            int unmatched = rng.Next(0, 3);
+            int days = rng.Next(1, 11);
+            bool hasSupport = true;
+
+            if (anomalies.TryGetValue(i, out var anomaly))
+            {
+                switch (anomaly)
+                {
+                    case "LargeJump":
+                        variancePct = Math.Round((decimal)(rng.NextDouble() * 30 + 25), 2); // 25–55%
+                        current = Math.Round(previous * (1 + variancePct / 100), 2);
+                        break;
+                    case "MissingSupport":
+                        hasSupport = false;
+                        break;
+                    case "ManualJournal":
+                        manualCount = rng.Next(8, 15);
+                        break;
+                    case "Overdue":
+                        days = rng.Next(20, 45);
+                        break;
+                    case "UnmatchedItems":
+                        unmatched = rng.Next(6, 12);
+                        break;
+                }
+            }
+
+            snapshots.Add(new AccountSnapshot
+            {
+                AccountId = id,
+                AccountName = name,
+                AccountType = type,
+                PreviousBalance = previous,
+                CurrentBalance = current,
+                VarianceAmount = current - previous,
+                VariancePercent = variancePct,
+                ManualJournalCount = manualCount,
+                LargestManualJournalAmount = Math.Round((decimal)(rng.NextDouble() * 5_000), 2),
+                UnmatchedItemCount = unmatched,
+                DaysToCompleteReconciliation = days,
+                HasSupportDocument = hasSupport,
                 MaterialityThreshold = Math.Round(previous * 0.05m, 2),
             });
         }
