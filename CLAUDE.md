@@ -74,6 +74,11 @@ Always use Context7 MCP when I need library/API documentation, code generation, 
 
 When creating items in GitHub always use CloseGuardAIDemo GitHub project. Create items in Backlog and give a name to each item "Step-number short description". Add a short description to each item. Try to figure out what was the latest used step number in the current session and add +1 to each step.
 
-When the user asks to work on a Step, immediately move the corresponding GitHub project item to "In-progress" state before writing any code.
+When the user asks to work on a Step:
+1. Create a dedicated GitHub branch named after the step (e.g. `Step-1-Create-AccountSnapshot-data-model`)
+2. Move the corresponding GitHub project item to "In-progress" state
+3. Do all coding on that branch
 
-Move item to "In-review" state when you are done programming.
+When programming is done:
+1. Move the GitHub project item to "In-review" state
+2. Create a Pull Request for the branch — the user will approve and merge it; never merge it yourself
