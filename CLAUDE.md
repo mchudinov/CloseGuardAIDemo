@@ -91,5 +91,5 @@ When programming is done:
 
 When the user asks to check if a PR is approved:
 1. Check PR review status with `gh pr view <number> --json reviewDecision,mergeStateStatus`
-2. If approved and merged: switch to `main`, pull latest, delete the local and remote feature branch, move the GitHub project item to "Done" state
+2. If approved and merged: switch to `main`, pull latest, delete the local and remote feature branch, move the GitHub project item to "Done" state, then run `/compact`
 3. If not yet approved: report the current status and wait for the user to ask again
