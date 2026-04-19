@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/CloseGuardAIDemo.Tests.csproj" />
+  </Folder>
   <Project Path="Library/Library.csproj" />
   <Project Path="Web/Web.csproj" />
 </Solution>
