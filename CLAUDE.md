@@ -64,6 +64,12 @@ POST   /api/exceptions/{id}/feedback
 
 Early skeleton: routing, logging, MudBlazor, and config are wired up. Home page is a placeholder. No database, no API controllers, no scoring engine, and no active AI calls yet. The Azure OpenAI client registration in `Program.cs` is commented out pending implementation.
 
+## Development Rules
+
+### Test-Driven Development
+
+Always follow TDD: write a failing test first, verify it fails for the right reason, then write the minimal production code to make it pass. Never write production code before a failing test exists. Delete any production code written before its test and start over.
+
 ## Project Instructions
 
 ### Context7 Integration
