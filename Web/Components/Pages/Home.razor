@@ -2,6 +2,7 @@
 @inject CloseGuardAIDemo.Web.Services.DataService DataService
 @using CloseGuardAIDemo.Web.Services
 @using CloseGuardAIDemo.Web.Models
+@implements IDisposable
 
 <PageTitle>CloseGuard AI Demo</PageTitle>
 
@@ -67,4 +68,61 @@
             }
         </MudPaper>
     </MudItem>
+
+    <MudItem xs="12">
+        <MudPaper data-testid="analysis-panel" Class="pa-2" Elevation="2">
+            <MudText Typo="Typo.h6" Class="mb-2">Exception Analysis</MudText>
+            @if (DataService.AnalysisResults == null)
+            {
+                <MudText Align="Align.Center" Class="pa-4">Run analysis to see results</MudText>
+            }
+            else
+            {
+                <MudTable Items="DataService.AnalysisResults" Dense="true" Striped="true" Hover="true">
+                    <HeaderContent>
+                        <MudTh>Account Name</MudTh>
+                        <MudTh>Risk Score</MudTh>
+                        <MudTh>Severity</MudTh>
+                        <MudTh>Likely Cause</MudTh>
+                        <MudTh>Variance Amount</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>@context.AccountName</MudTd>
+                        <MudTd>@context.RiskScore.ToString("F2")</MudTd>
+                        <MudTd>
+                            <MudChip T="string" Color="@SeverityColor(context.Severity)" Size="Size.Small">
+                                @context.Severity
+                            </MudChip>
+                        </MudTd>
+                        <MudTd>@context.LikelyCause</MudTd>
+                        <MudTd>@context.VarianceAmount.ToString("N0")</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            }
+        </MudPaper>
+    </MudItem>
 </MudGrid>
+
+@code {
+    protected override void OnInitialized()
+    {
+        DataService.StateChanged += OnStateChanged;
+    }
+
+    private void OnStateChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        DataService.StateChanged -= OnStateChanged;
+    }
+
+    private static Color SeverityColor(CloseGuardAIDemo.Web.Models.Severity severity) => severity switch
+    {
+        CloseGuardAIDemo.Web.Models.Severity.High   => Color.Error,
+        CloseGuardAIDemo.Web.Models.Severity.Medium => Color.Warning,
+        _                                           => Color.Success,
+    };
+}

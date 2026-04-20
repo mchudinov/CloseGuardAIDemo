@@ -16,7 +16,7 @@
             <MudSpacer/>
             <MudButton @onclick="() => DataService.SetDataset(DataSet.Deviated)">Generate Deviated Data 📈</MudButton>
             <MudSpacer />
-            <MudButton Href="/analyse">Analyse Data 🤖</MudButton>
+            <MudButton @onclick="() => DataService.Analyse()">Analyse Data 🤖</MudButton>
         </MudButtonGroup>
     </MudAppBar>
     <MudMainContent>
