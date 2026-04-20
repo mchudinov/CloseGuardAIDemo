@@ -4,22 +4,9 @@
       "Bash(git remote *)",
       "mcp__github__issue_write",
       "Bash(python -c \"import json,sys; items=json.load\\(sys.stdin\\)['items']; [print\\(i['title'], '-', i['status']\\) for i in items]\")",
-      "Bash(dotnet new *)",
-      "Bash(dotnet sln *)",
-      "Bash(dotnet test *)",
-      "Bash(git checkout *)",
-      "Bash(git add *)",
-      "Bash(git commit -m ' *)",
-      "Bash(git push *)",
-      "Bash(gh pr create --title 'Step-2 Create ExceptionResult model and Severity enum' --body ' *)",
-      "Bash(git pull *)",
-      "Bash(gh pr *)",
-      "Bash(git branch *)",
-      "Bash(cp \"C:/Users/mikael/.claude/projects/G--projects-test-CloseGuardAIDemo/memory/MEMORY.md\" \"G:/projects/test/CloseGuardAIDemo/.claude/memory/MEMORY.md\")",
-      "Bash(cp \"C:/Users/mikael/.claude/projects/G--projects-test-CloseGuardAIDemo/memory/user_profile.md\" \"G:/projects/test/CloseGuardAIDemo/.claude/memory/user_profile.md\")",
-      "Bash(cp \"C:/Users/mikael/.claude/projects/G--projects-test-CloseGuardAIDemo/memory/project_context.md\" \"G:/projects/test/CloseGuardAIDemo/.claude/memory/project_context.md\")",
-      "Bash(cp \"C:/Users/mikael/.claude/projects/G--projects-test-CloseGuardAIDemo/memory/feedback_workflow.md\" \"G:/projects/test/CloseGuardAIDemo/.claude/memory/feedback_workflow.md\")",
-      "Bash(cp \"C:/Users/mikael/.claude/projects/G--projects-test-CloseGuardAIDemo/memory/feedback_dotnet.md\" \"G:/projects/test/CloseGuardAIDemo/.claude/memory/feedback_dotnet.md\")"
+      "Bash(dotnet *)",
+      "Bash(git *)",
+      "Bash(gh *)"
     ]
   }
 }
