@@ -20,6 +20,7 @@ public class DataService
             CleanData = DataGenerator.GenerateClean();
         else
             DeviatedData = DataGenerator.GenerateDeviated();
+        AnalysisResults = null;
         StateChanged?.Invoke();
     }
 

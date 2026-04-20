@@ -176,6 +176,30 @@ public class DataServiceTests
     }
 
     [Fact]
+    public void SetDataset_Clean_ClearsAnalysisResults()
+    {
+        var svc = new DataService();
+        svc.Analyse();
+        Assert.NotNull(svc.AnalysisResults);
+
+        svc.SetDataset(DataSet.Clean);
+
+        Assert.Null(svc.AnalysisResults);
+    }
+
+    [Fact]
+    public void SetDataset_Deviated_ClearsAnalysisResults()
+    {
+        var svc = new DataService();
+        svc.Analyse();
+        Assert.NotNull(svc.AnalysisResults);
+
+        svc.SetDataset(DataSet.Deviated);
+
+        Assert.Null(svc.AnalysisResults);
+    }
+
+    [Fact]
     public void Reset_ClearsCleanData()
     {
         var svc = new DataService();

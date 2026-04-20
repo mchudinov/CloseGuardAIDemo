@@ -60,6 +60,26 @@ public class HomeBottomPanelTests : IAsyncLifetime
     }
 
     [Fact]
+    public void BottomPanel_AfterSetDatasetClean_RevertsToRunAnalysisMessage()
+    {
+        var dataService = new DataService();
+        dataService.Analyse();
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+        Assert.DoesNotContain("Run analysis to see results",
+            cut.Find("[data-testid='analysis-panel']").TextContent);
+
+        dataService.SetDataset(DataSet.Clean);
+        cut.WaitForState(() =>
+            cut.Find("[data-testid='analysis-panel']").TextContent
+                .Contains("Run analysis to see results"));
+
+        Assert.Contains("Run analysis to see results",
+            cut.Find("[data-testid='analysis-panel']").TextContent);
+    }
+
+    [Fact]
     public void BottomPanel_AfterStateChangedFires_RendersUpdatedResults()
     {
         var dataService = new DataService();
