@@ -1,5 +1,7 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 @inject IJSRuntime JS
+@inject CloseGuardAIDemo.Web.Services.DataService DataService
+@using CloseGuardAIDemo.Web.Services
 
 <MudThemeProvider />
 <MudPopoverProvider />
@@ -10,12 +12,12 @@
     <MudAppBar Elevation="1">
         <MudButton Variant="Variant.Text" Color="Color.Tertiary" Size="Size.Large" Href="/">CloseGuard 💵 🤖</MudButton>
         <MudButtonGroup Color="Color.Primary" Variant="Variant.Filled">
-            <MudButton Href="/How_it_works">Generate Random Data 💹</MudButton>
+            <MudButton @onclick="() => DataService.SetDataset(DataSet.Clean)">Generate Random Data 💹</MudButton>
             <MudSpacer/>
-            <MudButton Href="/Price">Generate Deviated Data 📈</MudButton>
+            <MudButton @onclick="() => DataService.SetDataset(DataSet.Deviated)">Generate Deviated Data 📈</MudButton>
             <MudSpacer />
-            <MudButton Href="/Price">Analyse Data 🤖</MudButton>
-        </MudButtonGroup>        
+            <MudButton Href="/analyse">Analyse Data 🤖</MudButton>
+        </MudButtonGroup>
     </MudAppBar>
     <MudMainContent>
 
