@@ -79,7 +79,7 @@ Always use Context7 MCP when I need library/API documentation, code generation, 
 ### Plan Step
 
 When the user asks to "plan a step" (or equivalent phrasing like "add a step", "create a step"):
-1. Add the step to `docs/plans/2026-04-18-main-screen-steps.md` — a new row in the table and a full detail section at the bottom.
+1. Add the step to `docs/plans/2026-04-18-steps.md` — a new row in the table and a full detail section at the bottom.
 2. Create a GitHub project item in the CloseGuardAIDemo project with title "Step-N Short description", a short description body, and status set to Backlog.
 
 Both actions are always done together, without the user having to ask for each separately.
