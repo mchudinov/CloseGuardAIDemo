@@ -76,6 +76,14 @@ Always follow TDD: write a failing test first, verify it fails for the right rea
 
 Always use Context7 MCP when I need library/API documentation, code generation, setup, or configuration steps without me having to explicitly ask.
 
+### Plan Step
+
+When the user asks to "plan a step" (or equivalent phrasing like "add a step", "create a step"):
+1. Add the step to `docs/plans/2026-04-18-main-screen-steps.md` — a new row in the table and a full detail section at the bottom.
+2. Create a GitHub project item in the CloseGuardAIDemo project with title "Step-N Short description", a short description body, and status set to Backlog.
+
+Both actions are always done together, without the user having to ask for each separately.
+
 ### GitHUb integration
 
 When creating items in GitHub always use CloseGuardAIDemo GitHub project. Create items in Backlog and give a name to each item "Step-number short description". Add a short description to each item. Try to figure out what was the latest used step number in the current session and add +1 to each step.
