@@ -154,4 +154,24 @@ public class DataServiceTests
         svc.Analyse();
         Assert.True(raised);
     }
+
+    [Fact]
+    public void SetDataset_Clean_RaisesStateChangedEvent()
+    {
+        var svc = new DataService();
+        var raised = false;
+        svc.StateChanged += () => raised = true;
+        svc.SetDataset(DataSet.Clean);
+        Assert.True(raised);
+    }
+
+    [Fact]
+    public void SetDataset_Deviated_RaisesStateChangedEvent()
+    {
+        var svc = new DataService();
+        var raised = false;
+        svc.StateChanged += () => raised = true;
+        svc.SetDataset(DataSet.Deviated);
+        Assert.True(raised);
+    }
 }

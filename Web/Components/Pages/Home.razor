@@ -16,14 +16,15 @@
             }
             else
             {
-                <MudTable Items="DataService.CleanData" Dense="true" Striped="true" Hover="true">
+                <MudTable Items="DataService.CleanData" Dense="true" Striped="true" Hover="true"
+                          RowClassFunc="@((s, _) => s.AccountId == _selectedAccountId ? "selected-row" : "")">
                     <HeaderContent>
-                        <MudTh>Account Name</MudTh>
-                        <MudTh>Account Type</MudTh>
-                        <MudTh>Previous Balance</MudTh>
-                        <MudTh>Current Balance</MudTh>
-                        <MudTh>Variance Amount</MudTh>
-                        <MudTh>Variance %</MudTh>
+                        <MudTh><b>Account Name</b></MudTh>
+                        <MudTh><b>Account Type</b></MudTh>
+                        <MudTh><b>Previous Balance</b></MudTh>
+                        <MudTh><b>Current Balance</b></MudTh>
+                        <MudTh><b>Variance Amount</b></MudTh>
+                        <MudTh><b>Variance %</b></MudTh>
                     </HeaderContent>
                     <RowTemplate>
                         <MudTd>@context.AccountName</MudTd>
@@ -47,14 +48,15 @@
             }
             else
             {
-                <MudTable Items="DataService.DeviatedData" Dense="true" Striped="true" Hover="true">
+                <MudTable Items="DataService.DeviatedData" Dense="true" Striped="true" Hover="true"
+                          RowClassFunc="@((s, _) => s.AccountId == _selectedAccountId ? "selected-row" : "")">
                     <HeaderContent>
-                        <MudTh>Account Name</MudTh>
-                        <MudTh>Account Type</MudTh>
-                        <MudTh>Previous Balance</MudTh>
-                        <MudTh>Current Balance</MudTh>
-                        <MudTh>Variance Amount</MudTh>
-                        <MudTh>Variance %</MudTh>
+                        <MudTh><b>Account Name</b></MudTh>
+                        <MudTh><b>Account Type</b></MudTh>
+                        <MudTh><b>Previous Balance</b></MudTh>
+                        <MudTh><b>Current Balance</b></MudTh>
+                        <MudTh><b>Variance Amount</b></MudTh>
+                        <MudTh><b>Variance %</b></MudTh>
                     </HeaderContent>
                     <RowTemplate>
                         <MudTd>@context.AccountName</MudTd>
@@ -78,13 +80,15 @@
             }
             else
             {
-                <MudTable Items="DataService.AnalysisResults" Dense="true" Striped="true" Hover="true">
+                <MudTable T="ExceptionResult" Items="DataService.AnalysisResults" Dense="true" Striped="true" Hover="true"
+                          OnRowClick="OnAnalysisRowClick"
+                          RowClassFunc="@((r, _) => r.AccountId == _selectedAccountId ? "selected-row" : "")">
                     <HeaderContent>
-                        <MudTh>Account Name</MudTh>
-                        <MudTh>Risk Score</MudTh>
-                        <MudTh>Severity</MudTh>
-                        <MudTh>Likely Cause</MudTh>
-                        <MudTh>Variance Amount</MudTh>
+                        <MudTh><b>Account Name</b></MudTh>
+                        <MudTh><b>Risk Score</b></MudTh>
+                        <MudTh><b>Severity</b></MudTh>
+                        <MudTh><b>Likely Cause</b></MudTh>
+                        <MudTh><b>Variance Amount</b></MudTh>
                     </HeaderContent>
                     <RowTemplate>
                         <MudTd>@context.AccountName</MudTd>
@@ -104,6 +108,8 @@
 </MudGrid>
 
 @code {
+    private string? _selectedAccountId;
+
     protected override void OnInitialized()
     {
         DataService.StateChanged += OnStateChanged;
@@ -117,6 +123,14 @@
     public void Dispose()
     {
         DataService.StateChanged -= OnStateChanged;
+    }
+
+    private void OnAnalysisRowClick(TableRowClickEventArgs<ExceptionResult> args)
+    {
+        if (args.Item is null) return;
+        _selectedAccountId = _selectedAccountId == args.Item.AccountId
+            ? null
+            : args.Item.AccountId;
     }
 
     private static Color SeverityColor(CloseGuardAIDemo.Web.Models.Severity severity) => severity switch
