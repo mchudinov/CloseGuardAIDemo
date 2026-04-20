@@ -36,3 +36,15 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+.mud-table-hover tbody tr:hover:not(.selected-row) {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+tr.selected-row {
+    background-color: rgba(25, 118, 210, 0.25) !important;
+}
+
+tr.selected-row:hover {
+    background-color: rgba(25, 118, 210, 0.35) !important;
+}
