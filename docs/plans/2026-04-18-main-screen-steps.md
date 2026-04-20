@@ -17,6 +17,7 @@
 | Step-8 | Wire MainLayout.razor buttons to DataService | `Web/Components/Layout/MainLayout.razor` |
 | Step-9 | Implement Home.razor top panels (clean and deviated data grids) | `Web/Components/Pages/Home.razor` |
 | Step-10 | Implement Home.razor bottom analysis panel with state subscription | `Web/Components/Pages/Home.razor` |
+| Step-11 | UI improvements: bold headers, reactive panels, row highlighting | `Web/Components/Pages/Home.razor`, `Web/Services/DataService.cs`, `Web/wwwroot/app.css` |
 
 ## Step Details
 
@@ -95,3 +96,14 @@ Two side-by-side `MudDataGrid` panels. Columns: Account Name, Account Type, Prev
 `Web/Components/Pages/Home.razor`
 
 Bottom `MudDataGrid` with columns: Account Name, Risk Score, Severity (colored `MudChip`), Likely Cause, Variance Amount. Sorted by `RiskScore` descending. Empty state: `"Run analysis to see results"`. Subscribe to `DataService.StateChanged` in `OnInitialized`, call `StateHasChanged()` on event, unsubscribe in `Dispose()`.
+
+---
+
+### Step-11 — UI improvements: bold headers, reactive panels, row highlighting
+`Web/Components/Pages/Home.razor`, `Web/Services/DataService.cs`, `Web/wwwroot/app.css`
+
+Four improvements applied via TDD (11 tests):
+1. **Bold table headers** — wrapped all `<MudTh>` content in `<b>` tags across all three panels.
+2. **Reactive Clean/Deviated panels** — `DataService.SetDataset()` now raises `StateChanged`, so the top panels update immediately when the user clicks Generate buttons without a page reload.
+3. **Contrast hover CSS** — added `.mud-table-hover tbody tr:hover:not(.selected-row)` and `tr.selected-row` styles to `app.css` for clear visual feedback.
+4. **Cross-table row highlighting** — clicking an Exception Analysis row sets `_selectedAccountId`; all three `MudTable` components share a `RowClassFunc` keyed on that field, highlighting the matching account row in the Clean and Deviated panels simultaneously. Clicking the same row again deselects it.
