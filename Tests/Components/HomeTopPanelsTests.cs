@@ -162,4 +162,78 @@ public class HomeTopPanelsTests : IAsyncLifetime
         var headers = cut.Find("[data-testid='analysis-panel']").QuerySelectorAll("th b");
         Assert.True(headers.Length > 0, "Expected bold <b> elements inside table headers");
     }
+
+    [Fact]
+    public void CleanPanel_WhenDataLoaded_ShowsThirteenColumns()
+    {
+        var dataService = new DataService();
+        dataService.SetDataset(DataSet.Clean);
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+
+        var headers = cut.Find("[data-testid='clean-panel']").QuerySelectorAll("th");
+        Assert.Equal(13, headers.Length);
+    }
+
+    [Fact]
+    public void DeviatedPanel_WhenDataLoaded_ShowsThirteenColumns()
+    {
+        var dataService = new DataService();
+        dataService.SetDataset(DataSet.Deviated);
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+
+        var headers = cut.Find("[data-testid='deviated-panel']").QuerySelectorAll("th");
+        Assert.Equal(13, headers.Length);
+    }
+
+    [Fact]
+    public void CleanPanel_WhenDataLoaded_ShowsHasSupportDocColumn()
+    {
+        var dataService = new DataService();
+        dataService.SetDataset(DataSet.Clean);
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+
+        Assert.Contains("Has Support Doc", cut.Find("[data-testid='clean-panel']").TextContent);
+    }
+
+    [Fact]
+    public void DeviatedPanel_WhenDataLoaded_ShowsHasSupportDocColumn()
+    {
+        var dataService = new DataService();
+        dataService.SetDataset(DataSet.Deviated);
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+
+        Assert.Contains("Has Support Doc", cut.Find("[data-testid='deviated-panel']").TextContent);
+    }
+
+    [Fact]
+    public void CleanPanel_WhenDataLoaded_ShowsManualJournalsColumn()
+    {
+        var dataService = new DataService();
+        dataService.SetDataset(DataSet.Clean);
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+
+        Assert.Contains("Manual Journals", cut.Find("[data-testid='clean-panel']").TextContent);
+    }
+
+    [Fact]
+    public void DeviatedPanel_WhenDataLoaded_ShowsManualJournalsColumn()
+    {
+        var dataService = new DataService();
+        dataService.SetDataset(DataSet.Deviated);
+        _ctx.Services.AddSingleton(dataService);
+
+        var cut = _ctx.Render<Home>();
+
+        Assert.Contains("Manual Journals", cut.Find("[data-testid='deviated-panel']").TextContent);
+    }
 }

@@ -7,7 +7,7 @@
 <PageTitle>CloseGuard AI Demo</PageTitle>
 
 <MudGrid Spacing="2" Class="pa-4">
-    <MudItem xs="6">
+    <MudItem xs="12">
         <MudPaper data-testid="clean-panel" Class="pa-2" Elevation="2">
             <MudText Typo="Typo.h6" Class="mb-2">Clean Data</MudText>
             @if (DataService.CleanData == null)
@@ -19,27 +19,41 @@
                 <MudTable Items="DataService.CleanData" Dense="true" Striped="true" Hover="true"
                           RowClassFunc="@((s, _) => s.AccountId == _selectedAccountId ? "selected-row" : "")">
                     <HeaderContent>
+                        <MudTh><b>Account ID</b></MudTh>
                         <MudTh><b>Account Name</b></MudTh>
                         <MudTh><b>Account Type</b></MudTh>
                         <MudTh><b>Previous Balance</b></MudTh>
                         <MudTh><b>Current Balance</b></MudTh>
                         <MudTh><b>Variance Amount</b></MudTh>
                         <MudTh><b>Variance %</b></MudTh>
+                        <MudTh><b>Manual Journals</b></MudTh>
+                        <MudTh><b>Largest Manual Journal</b></MudTh>
+                        <MudTh><b>Unmatched Items</b></MudTh>
+                        <MudTh><b>Days to Reconcile</b></MudTh>
+                        <MudTh><b>Has Support Doc</b></MudTh>
+                        <MudTh><b>Materiality Threshold</b></MudTh>
                     </HeaderContent>
                     <RowTemplate>
+                        <MudTd>@context.AccountId</MudTd>
                         <MudTd>@context.AccountName</MudTd>
                         <MudTd>@context.AccountType</MudTd>
                         <MudTd>@context.PreviousBalance.ToString("N0")</MudTd>
                         <MudTd>@context.CurrentBalance.ToString("N0")</MudTd>
                         <MudTd>@context.VarianceAmount.ToString("N0")</MudTd>
                         <MudTd>@context.VariancePercent.ToString("F1")%</MudTd>
+                        <MudTd>@context.ManualJournalCount</MudTd>
+                        <MudTd>@context.LargestManualJournalAmount.ToString("N0")</MudTd>
+                        <MudTd>@context.UnmatchedItemCount</MudTd>
+                        <MudTd>@context.DaysToCompleteReconciliation</MudTd>
+                        <MudTd>@(context.HasSupportDocument ? "✓" : "✗")</MudTd>
+                        <MudTd>@context.MaterialityThreshold.ToString("N0")</MudTd>
                     </RowTemplate>
                 </MudTable>
             }
         </MudPaper>
     </MudItem>
 
-    <MudItem xs="6">
+    <MudItem xs="12">
         <MudPaper data-testid="deviated-panel" Class="pa-2" Elevation="2">
             <MudText Typo="Typo.h6" Class="mb-2">Deviated Data</MudText>
             @if (DataService.DeviatedData == null)
@@ -51,20 +65,34 @@
                 <MudTable Items="DataService.DeviatedData" Dense="true" Striped="true" Hover="true"
                           RowClassFunc="@((s, _) => s.AccountId == _selectedAccountId ? "selected-row" : "")">
                     <HeaderContent>
+                        <MudTh><b>Account ID</b></MudTh>
                         <MudTh><b>Account Name</b></MudTh>
                         <MudTh><b>Account Type</b></MudTh>
                         <MudTh><b>Previous Balance</b></MudTh>
                         <MudTh><b>Current Balance</b></MudTh>
                         <MudTh><b>Variance Amount</b></MudTh>
                         <MudTh><b>Variance %</b></MudTh>
+                        <MudTh><b>Manual Journals</b></MudTh>
+                        <MudTh><b>Largest Manual Journal</b></MudTh>
+                        <MudTh><b>Unmatched Items</b></MudTh>
+                        <MudTh><b>Days to Reconcile</b></MudTh>
+                        <MudTh><b>Has Support Doc</b></MudTh>
+                        <MudTh><b>Materiality Threshold</b></MudTh>
                     </HeaderContent>
                     <RowTemplate>
+                        <MudTd>@context.AccountId</MudTd>
                         <MudTd>@context.AccountName</MudTd>
                         <MudTd>@context.AccountType</MudTd>
                         <MudTd>@context.PreviousBalance.ToString("N0")</MudTd>
                         <MudTd>@context.CurrentBalance.ToString("N0")</MudTd>
                         <MudTd>@context.VarianceAmount.ToString("N0")</MudTd>
                         <MudTd>@context.VariancePercent.ToString("F1")%</MudTd>
+                        <MudTd>@context.ManualJournalCount</MudTd>
+                        <MudTd>@context.LargestManualJournalAmount.ToString("N0")</MudTd>
+                        <MudTd>@context.UnmatchedItemCount</MudTd>
+                        <MudTd>@context.DaysToCompleteReconciliation</MudTd>
+                        <MudTd>@(context.HasSupportDocument ? "✓" : "✗")</MudTd>
+                        <MudTd>@context.MaterialityThreshold.ToString("N0")</MudTd>
                     </RowTemplate>
                 </MudTable>
             }
