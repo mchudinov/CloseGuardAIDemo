@@ -4,8 +4,6 @@ namespace CloseGuardAIDemo.Web.Services;
 
 public static class DataGenerator
 {
-    private static readonly Random _rng = new(42);
-
     private static readonly (string Id, string Name, string Type)[] AccountDefinitions =
     [
         ("ACC-001", "Cash and Cash Equivalents", "Asset"),
@@ -32,7 +30,7 @@ public static class DataGenerator
 
     public static List<AccountSnapshot> GenerateClean()
     {
-        var rng = new Random(42);
+        var rng = new Random();
         var snapshots = new List<AccountSnapshot>();
 
         foreach (var (id, name, type) in AccountDefinitions)
@@ -64,7 +62,7 @@ public static class DataGenerator
 
     public static List<AccountSnapshot> GenerateDeviated()
     {
-        var rng = new Random(99);
+        var rng = new Random();
         var snapshots = new List<AccountSnapshot>();
 
         // Anomaly types assigned to fixed indices so counts are deterministic
