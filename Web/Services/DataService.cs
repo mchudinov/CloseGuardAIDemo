@@ -9,6 +9,9 @@ public class DataService
     public DataSet ActiveDataset { get; private set; } = DataSet.Clean;
     public IReadOnlyList<AccountSnapshot>? CleanData { get; private set; }
     public IReadOnlyList<AccountSnapshot>? DeviatedData { get; private set; }
+    public IReadOnlyList<ExceptionResult>? AnalysisResults { get; private set; }
+
+    public event Action? StateChanged;
 
     public void SetDataset(DataSet dataset)
     {
@@ -17,6 +20,12 @@ public class DataService
             CleanData = DataGenerator.GenerateClean();
         else
             DeviatedData = DataGenerator.GenerateDeviated();
+    }
+
+    public void Analyse()
+    {
+        AnalysisResults = GetExceptions();
+        StateChanged?.Invoke();
     }
 
     public IReadOnlyList<ExceptionResult> GetExceptions()

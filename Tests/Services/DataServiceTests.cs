@@ -119,4 +119,39 @@ public class DataServiceTests
         svc.SetDataset(DataSet.Deviated);
         Assert.NotNull(svc.CleanData);
     }
+
+    [Fact]
+    public void AnalysisResults_InitiallyNull()
+    {
+        var svc = new DataService();
+        Assert.Null(svc.AnalysisResults);
+    }
+
+    [Fact]
+    public void Analyse_PopulatesAnalysisResults_WithTwentyItems()
+    {
+        var svc = new DataService();
+        svc.Analyse();
+        Assert.NotNull(svc.AnalysisResults);
+        Assert.Equal(20, svc.AnalysisResults!.Count);
+    }
+
+    [Fact]
+    public void Analyse_ResultsAreSortedByRiskScoreDescending()
+    {
+        var svc = new DataService();
+        svc.Analyse();
+        var scores = svc.AnalysisResults!.Select(r => r.RiskScore).ToList();
+        Assert.Equal(scores.OrderByDescending(s => s).ToList(), scores);
+    }
+
+    [Fact]
+    public void Analyse_RaisesStateChangedEvent()
+    {
+        var svc = new DataService();
+        var raised = false;
+        svc.StateChanged += () => raised = true;
+        svc.Analyse();
+        Assert.True(raised);
+    }
 }
