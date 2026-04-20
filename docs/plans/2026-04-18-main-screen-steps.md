@@ -18,6 +18,7 @@
 | Step-9 | Implement Home.razor top panels (clean and deviated data grids) | `Web/Components/Pages/Home.razor` |
 | Step-10 | Implement Home.razor bottom analysis panel with state subscription | `Web/Components/Pages/Home.razor` |
 | Step-11 | UI improvements: bold headers, reactive panels, row highlighting | `Web/Components/Pages/Home.razor`, `Web/Services/DataService.cs`, `Web/wwwroot/app.css` |
+| Step-12 | Add Reset Data button to clear all panels | `Web/Components/Layout/MainLayout.razor`, `Web/Services/DataService.cs` |
 
 ## Step Details
 
@@ -107,3 +108,10 @@ Four improvements applied via TDD (11 tests):
 2. **Reactive Clean/Deviated panels** — `DataService.SetDataset()` now raises `StateChanged`, so the top panels update immediately when the user clicks Generate buttons without a page reload.
 3. **Contrast hover CSS** — added `.mud-table-hover tbody tr:hover:not(.selected-row)` and `tr.selected-row` styles to `app.css` for clear visual feedback.
 4. **Cross-table row highlighting** — clicking an Exception Analysis row sets `_selectedAccountId`; all three `MudTable` components share a `RowClassFunc` keyed on that field, highlighting the matching account row in the Clean and Deviated panels simultaneously. Clicking the same row again deselects it.
+
+---
+
+### Step-12 — Add Reset Data button to clear all panels
+`Web/Components/Layout/MainLayout.razor`, `Web/Services/DataService.cs`
+
+Add a "Reset Data 🔄️" `MudButton` to the `MudAppBar` in `MainLayout.razor`. Clicking it calls `DataService.Reset()`, which clears `CleanData`, `DeviatedData`, and `AnalysisResults` back to `null` and resets `ActiveDataset` to `DataSet.Clean`. `Reset()` raises `StateChanged` so all three panels on `Home.razor` immediately revert to their empty states ("No data yet" / "Run analysis to see results").

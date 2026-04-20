@@ -23,7 +23,10 @@
       "Bash(gh api *)",
       "Bash(dotnet-script --version)",
       "Bash(dotnet tool *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(taskkill *)",
+      "PowerShell(Stop-Process *)",
+      "Bash(python -c \"import sys,json; items=json.load\\(sys.stdin\\)['items']; [print\\(i['id'], i.get\\('title',''\\)\\) for i in items]\")"
     ]
   }
 }
