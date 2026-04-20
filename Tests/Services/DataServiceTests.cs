@@ -174,4 +174,50 @@ public class DataServiceTests
         svc.SetDataset(DataSet.Deviated);
         Assert.True(raised);
     }
+
+    [Fact]
+    public void Reset_ClearsCleanData()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Clean);
+        svc.Reset();
+        Assert.Null(svc.CleanData);
+    }
+
+    [Fact]
+    public void Reset_ClearsDeviatedData()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Deviated);
+        svc.Reset();
+        Assert.Null(svc.DeviatedData);
+    }
+
+    [Fact]
+    public void Reset_ClearsAnalysisResults()
+    {
+        var svc = new DataService();
+        svc.Analyse();
+        svc.Reset();
+        Assert.Null(svc.AnalysisResults);
+    }
+
+    [Fact]
+    public void Reset_ResetsActiveDatasetToClean()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Deviated);
+        svc.Reset();
+        Assert.Equal(DataSet.Clean, svc.ActiveDataset);
+    }
+
+    [Fact]
+    public void Reset_RaisesStateChangedEvent()
+    {
+        var svc = new DataService();
+        var raised = false;
+        svc.StateChanged += () => raised = true;
+        svc.Reset();
+        Assert.True(raised);
+    }
 }

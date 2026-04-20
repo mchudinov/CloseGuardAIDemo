@@ -29,6 +29,15 @@ public class DataService
         StateChanged?.Invoke();
     }
 
+    public void Reset()
+    {
+        ActiveDataset = DataSet.Clean;
+        CleanData = null;
+        DeviatedData = null;
+        AnalysisResults = null;
+        StateChanged?.Invoke();
+    }
+
     public IReadOnlyList<ExceptionResult> GetExceptions()
     {
         var snapshots = ActiveDataset == DataSet.Deviated
