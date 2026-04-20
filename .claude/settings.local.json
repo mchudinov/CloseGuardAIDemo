@@ -22,7 +22,8 @@
       "Bash(cp \"C:/Users/mikael/.claude/projects/G--projects-test-CloseGuardAIDemo/memory/feedback_dotnet.md\" \"G:/projects/test/CloseGuardAIDemo/.claude/memory/feedback_dotnet.md\")",
       "Bash(gh api *)",
       "Bash(dotnet-script --version)",
-      "Bash(dotnet tool *)"
+      "Bash(dotnet tool *)",
+      "Bash(git commit *)"
     ]
   }
 }
