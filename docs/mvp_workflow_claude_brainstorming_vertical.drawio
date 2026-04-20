@@ -1,0 +1,120 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram id="mvp-workflow-vertical" name="Page-1">
+    <mxGraphModel dx="926" dy="958" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;" value="Initial Software Development Workflow for POC/MVP&amp;nbsp;&lt;div&gt;using Claude and Brainstorming&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="530" x="312.5" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1;" value="Start&lt;br&gt;&lt;font style=&quot;font-size:14px;&quot;&gt;Idea for MVP&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="450" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="step1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" value="Step 1&lt;br&gt;&lt;b&gt;Describe MVP&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px;&quot;&gt;Define goal, scope, users, and core value&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size:13px;&quot;&gt;ChatGPT helps&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="380" x="350" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="step2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value="Step 2&lt;br&gt;&lt;b&gt;Start Brainstorming&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px;&quot;&gt;Answer questions, refine assumptions, explore options with Claude&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="380" x="350" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="step3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=16;" value="Step 3&lt;br&gt;&lt;b&gt;Create Software High-Level Design&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px;&quot;&gt;Architecture, main components, integrations, data flow&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="382.5" x="348.75" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="step4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;" value="Step 4&lt;br&gt;&lt;b&gt;Application Low-Level Design&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px;&quot;&gt;Classes, modules, APIs, database details, implementation decisions&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="385" x="347.5" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="step5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;" value="Step 5&lt;br&gt;&lt;b&gt;Divide into Particular Tasks&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px;&quot;&gt;Create backlog, tasks, priorities, and delivery sequence&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="382.5" x="348.75" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1;" value="Ready for Development" vertex="1">
+          <mxGeometry height="80" width="240" x="420" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="noteClaude" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=13;shadow=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Claude helps iterate ideas, challenge assumptions, and shape the solution during brainstorming and design.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="262.5" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="step1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="step1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="step2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="step3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="step4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="step5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="step5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="end" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#666666;fontSize=12;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="step2" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Iterative feedback loop&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="560" />
+              <mxPoint x="240" y="480" />
+              <mxPoint x="540" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="feedback2" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;strokeColor=#666666;fontSize=12;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" target="step3" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Refinement loop&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="710" />
+              <mxPoint x="240" y="640" />
+              <mxPoint x="550" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-2" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.document" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;idea.md file&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="40" x="820" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-3" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.document" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;mvp.md file&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="40" x="820" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-4" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.193;entryY=0.618;entryDx=0;entryDy=0;entryPerimeter=0;" target="vRq55MnhEw5cv_VSt3oH-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-6" connectable="0" parent="vRq55MnhEw5cv_VSt3oH-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="outcome" vertex="1">
+          <mxGeometry relative="1" x="0.0781" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-5" edge="1" parent="1" source="step1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.231;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;" target="vRq55MnhEw5cv_VSt3oH-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-7" connectable="0" parent="vRq55MnhEw5cv_VSt3oH-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="outcome" vertex="1">
+          <mxGeometry relative="1" x="-0.2309" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-8" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.document" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;hld.md file&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="40" x="820" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-9" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.205;entryY=0.407;entryDx=0;entryDy=0;entryPerimeter=0;" target="vRq55MnhEw5cv_VSt3oH-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-10" connectable="0" parent="vRq55MnhEw5cv_VSt3oH-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="outcome" vertex="1">
+          <mxGeometry relative="1" x="-0.0978" y="3" as="geometry">
+            <mxPoint x="-8" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-12" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.document" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;lld.md file&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="40" x="820" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-13" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.385;entryY=0.792;entryDx=0;entryDy=0;entryPerimeter=0;" target="vRq55MnhEw5cv_VSt3oH-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-14" parent="1" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.documents;" value="small tasks" vertex="1">
+          <mxGeometry height="45" width="39" x="820" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="vRq55MnhEw5cv_VSt3oH-15" edge="1" parent="1" source="step5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
