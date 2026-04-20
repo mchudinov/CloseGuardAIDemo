@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net;
 using Azure;
 //using Azure.AI.OpenAI;
+using CloseGuardAIDemo.Web.Extensions;
 using Library;
 using MudBlazor;
 using MudBlazor.Services;
@@ -66,6 +67,7 @@ public class Program
             //});
 
             builder.Services.AddSingleton<Settings>(settings);
+            builder.Services.AddApplicationServices();
             builder.Services.AddMudServices();
 
             var app = builder.Build();
