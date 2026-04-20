@@ -69,4 +69,54 @@ public class DataServiceTests
         var results = svc.GetExceptions();
         Assert.All(results, r => Assert.False(string.IsNullOrEmpty(r.AccountId)));
     }
+
+    [Fact]
+    public void CleanData_InitiallyNull()
+    {
+        var svc = new DataService();
+        Assert.Null(svc.CleanData);
+    }
+
+    [Fact]
+    public void DeviatedData_InitiallyNull()
+    {
+        var svc = new DataService();
+        Assert.Null(svc.DeviatedData);
+    }
+
+    [Fact]
+    public void SetDataset_Clean_PopulatesCleanData()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Clean);
+        Assert.NotNull(svc.CleanData);
+        Assert.Equal(20, svc.CleanData!.Count);
+    }
+
+    [Fact]
+    public void SetDataset_Deviated_PopulatesDeviatedData()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Deviated);
+        Assert.NotNull(svc.DeviatedData);
+        Assert.Equal(20, svc.DeviatedData!.Count);
+    }
+
+    [Fact]
+    public void SetDataset_Clean_DoesNotClearDeviatedData()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Deviated);
+        svc.SetDataset(DataSet.Clean);
+        Assert.NotNull(svc.DeviatedData);
+    }
+
+    [Fact]
+    public void SetDataset_Deviated_DoesNotClearCleanData()
+    {
+        var svc = new DataService();
+        svc.SetDataset(DataSet.Clean);
+        svc.SetDataset(DataSet.Deviated);
+        Assert.NotNull(svc.CleanData);
+    }
 }
