@@ -7,8 +7,17 @@ public enum DataSet { Clean, Deviated }
 public class DataService
 {
     public DataSet ActiveDataset { get; private set; } = DataSet.Clean;
+    public IReadOnlyList<AccountSnapshot>? CleanData { get; private set; }
+    public IReadOnlyList<AccountSnapshot>? DeviatedData { get; private set; }
 
-    public void SetDataset(DataSet dataset) => ActiveDataset = dataset;
+    public void SetDataset(DataSet dataset)
+    {
+        ActiveDataset = dataset;
+        if (dataset == DataSet.Clean)
+            CleanData = DataGenerator.GenerateClean();
+        else
+            DeviatedData = DataGenerator.GenerateDeviated();
+    }
 
     public IReadOnlyList<ExceptionResult> GetExceptions()
     {

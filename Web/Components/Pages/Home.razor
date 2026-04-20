@@ -1,7 +1,70 @@
-﻿@page "/"
+@page "/"
+@inject CloseGuardAIDemo.Web.Services.DataService DataService
+@using CloseGuardAIDemo.Web.Services
+@using CloseGuardAIDemo.Web.Models
 
-<PageTitle>Home</PageTitle>
+<PageTitle>CloseGuard AI Demo</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudGrid Spacing="2" Class="pa-4">
+    <MudItem xs="6">
+        <MudPaper data-testid="clean-panel" Class="pa-2" Elevation="2">
+            <MudText Typo="Typo.h6" Class="mb-2">Clean Data</MudText>
+            @if (DataService.CleanData == null)
+            {
+                <MudText Align="Align.Center" Class="pa-4">No data yet</MudText>
+            }
+            else
+            {
+                <MudTable Items="DataService.CleanData" Dense="true" Striped="true" Hover="true">
+                    <HeaderContent>
+                        <MudTh>Account Name</MudTh>
+                        <MudTh>Account Type</MudTh>
+                        <MudTh>Previous Balance</MudTh>
+                        <MudTh>Current Balance</MudTh>
+                        <MudTh>Variance Amount</MudTh>
+                        <MudTh>Variance %</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>@context.AccountName</MudTd>
+                        <MudTd>@context.AccountType</MudTd>
+                        <MudTd>@context.PreviousBalance.ToString("N0")</MudTd>
+                        <MudTd>@context.CurrentBalance.ToString("N0")</MudTd>
+                        <MudTd>@context.VarianceAmount.ToString("N0")</MudTd>
+                        <MudTd>@context.VariancePercent.ToString("F1")%</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            }
+        </MudPaper>
+    </MudItem>
 
-Welcome to your new app.
+    <MudItem xs="6">
+        <MudPaper data-testid="deviated-panel" Class="pa-2" Elevation="2">
+            <MudText Typo="Typo.h6" Class="mb-2">Deviated Data</MudText>
+            @if (DataService.DeviatedData == null)
+            {
+                <MudText Align="Align.Center" Class="pa-4">No data yet</MudText>
+            }
+            else
+            {
+                <MudTable Items="DataService.DeviatedData" Dense="true" Striped="true" Hover="true">
+                    <HeaderContent>
+                        <MudTh>Account Name</MudTh>
+                        <MudTh>Account Type</MudTh>
+                        <MudTh>Previous Balance</MudTh>
+                        <MudTh>Current Balance</MudTh>
+                        <MudTh>Variance Amount</MudTh>
+                        <MudTh>Variance %</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>@context.AccountName</MudTd>
+                        <MudTd>@context.AccountType</MudTd>
+                        <MudTd>@context.PreviousBalance.ToString("N0")</MudTd>
+                        <MudTd>@context.CurrentBalance.ToString("N0")</MudTd>
+                        <MudTd>@context.VarianceAmount.ToString("N0")</MudTd>
+                        <MudTd>@context.VariancePercent.ToString("F1")%</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
