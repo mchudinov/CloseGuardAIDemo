@@ -17,6 +17,8 @@
             <MudButton @onclick="() => DataService.SetDataset(DataSet.Deviated)">Generate Deviated Data 📈</MudButton>
             <MudSpacer />
             <MudButton @onclick="() => DataService.Analyse()">Analyse Data 🤖</MudButton>
+            <MudSpacer />
+            <MudButton @onclick="() => DataService.Reset()">Reset Data 🔄️</MudButton>
         </MudButtonGroup>
     </MudAppBar>
     <MudMainContent>
