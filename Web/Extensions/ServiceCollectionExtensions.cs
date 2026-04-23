@@ -1,7 +1,7 @@
 using CloseGuardAIDemo.Web.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CloseGuardAIDemo.Web.Extensions;
+namespace Web.Extensions;
 
 public static class ServiceCollectionExtensions
 {

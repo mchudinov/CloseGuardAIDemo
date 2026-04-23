@@ -1,6 +1,6 @@
-using CloseGuardAIDemo.Web.Extensions;
 using CloseGuardAIDemo.Web.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Web.Extensions;
 
 namespace CloseGuardAIDemo.Tests.Services;
 
