@@ -2,13 +2,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Net;
 using Azure;
 //using Azure.AI.OpenAI;
-using CloseGuardAIDemo.Web.Extensions;
 using Library;
 using MudBlazor;
 using MudBlazor.Services;
 using Serilog;
 using Serilog.Debugging;
 using Serilog.Events;
+using Web.Extensions;
 
 namespace Web;
 
