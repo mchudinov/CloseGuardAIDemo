@@ -26,7 +26,8 @@
       "Bash(git commit *)",
       "Bash(taskkill *)",
       "PowerShell(Stop-Process *)",
-      "Bash(python -c \"import sys,json; items=json.load\\(sys.stdin\\)['items']; [print\\(i['id'], i.get\\('title',''\\)\\) for i in items]\")"
+      "Bash(python -c \"import sys,json; items=json.load\\(sys.stdin\\)['items']; [print\\(i['id'], i.get\\('title',''\\)\\) for i in items]\")",
+      "Bash(mkdir -p /home/user/CloseGuardAIDemo/.claude/hooks)"
     ]
   }
 }
